@@ -5,107 +5,218 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sudharsan Labs</title>
 <style>
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fafafa;color:#111}
-header{padding:40px;text-align:center;background:white;border-bottom:1px solid #eee}
-h1{margin:0;font-size:32px}
-p.subtitle{color:#666;margin-top:10px}
-button.primary{padding:12px 20px;margin-top:20px;border:none;background:black;color:white;border-radius:6px;cursor:pointer}
-section{max-width:850px;margin:40px auto;padding:0 20px}
-.feed{display:flex;flex-direction:column;gap:40px}
-.card{background:white;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.08);overflow:hidden}
-.card video{width:100%;display:block}
-.card-content{padding:20px}
-.project-title{font-size:20px;font-weight:bold;margin-bottom:10px}
-.label{font-weight:bold;margin-top:8px}
-.project-desc{color:#444;margin-top:4px;font-size:14px;line-height:1.5}
-.badge{display:inline-block;background:#eee;padding:4px 10px;border-radius:6px;font-size:12px;margin-top:12px}
-.deck-btn{display:inline-block;margin-top:14px;padding:9px 16px;background:black;color:white;border-radius:6px;text-decoration:none;font-size:14px}
-.resume{background:white;padding:30px;border-radius:10px;text-align:center}
-.footer{text-align:center;padding:40px;color:#777}
+body{
+font-family: Arial, Helvetica, sans-serif;
+margin:0;
+background:#f6f8f7;
+color:#1a1a1a;
+}
+
+header{
+text-align:center;
+padding:60px 20px;
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#555;
+font-size:18px;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.project{
+background:white;
+border:2px solid #9be3b0;
+border-radius:14px;
+padding:28px;
+margin-bottom:40px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+
+.project h2{
+margin-top:0;
+}
+
+.section-title{
+font-weight:bold;
+margin-top:16px;
+}
+
+.button{
+display:inline-block;
+margin-top:18px;
+padding:10px 18px;
+background:#0f9d58;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-size:14px;
+}
+
+.button:hover{
+background:#0b7f46;
+}
+
+/* PHONE MOCKUP */
+.phone-frame{
+margin-top:30px;
+width:260px;
+height:520px;
+margin-left:auto;
+margin-right:auto;
+background:black;
+border-radius:36px;
+padding:10px;
+position:relative;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.phone-frame video{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:28px;
+}
+
+/* side buttons */
+.phone-frame::before{
+content:"";
+position:absolute;
+left:-4px;
+top:120px;
+width:4px;
+height:60px;
+background:#333;
+border-radius:3px;
+}
+
+.phone-frame::after{
+content:"";
+position:absolute;
+right:-4px;
+top:160px;
+width:4px;
+height:90px;
+background:#333;
+border-radius:3px;
+}
+
+/* thinking section */
+.thinking{
+background:white;
+border-radius:14px;
+padding:40px;
+margin-top:60px;
+text-align:center;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+
+.problem-box{
+margin-top:20px;
+padding:16px;
+border:1px dashed #bbb;
+border-radius:8px;
+font-style:italic;
+background:#fafafa;
+}
+
 </style>
 </head>
 <body>
 
 <header>
 <h1>Sudharsan Labs</h1>
-<p class="subtitle">Engineer → <span id="role">Product Thinker</span></p>
-<p>Building experiments to solve real problems</p>
-<button class="primary" onclick="window.open('https://calendly.com','_blank')">Schedule 15 min Chat</button>
+<div class="subtitle">Product Thinking • UX • AI Experiments</div>
 </header>
 
-<section>
-<h2>Product Experiments</h2>
-<div class="feed">
+<div class="container">
 
-<!-- PROJECT 1 : GROWW GIFT CARD -->
-<div class="card">
-<video autoplay muted loop controls>
-<source src="groww-giftcard-demo.mp4" type="video/mp4">
+<!-- PROJECT 1 -->
+<div class="project">
+<h2>Groww Digital Gift Card</h2>
+
+<div class="section-title">Problem</div>
+<p>Gifting money digitally often feels transactional and impersonal.</p>
+
+<div class="section-title">Idea</div>
+<p>Allow users to gift investments directly through Groww using a digital investment gift card.</p>
+
+<div class="section-title">Solution</div>
+<p>A seamless gifting flow where users choose a fund, add a message, and send an investment gift card that can be redeemed instantly.</p>
+
+<a class="button" href="https://tasckuqt.gensparkspace.com/" target="_blank">View Product Deck</a>
+
+<div class="phone-frame">
+<video controls autoplay loop muted>
+<source src="groww-demo.mp4" type="video/mp4">
 </video>
-
-<div class="card-content">
-<div class="project-title">Groww Digital Gift Card</div>
-
-<div class="label">Problem</div>
-<div class="project-desc">Gifting money digitally often feels impersonal and lacks meaning. Users also struggle to introduce friends or family to investing in a simple way.</div>
-
-<div class="label">Idea</div>
-<div class="project-desc">Enable users to gift investments through Groww using a digital gift card that can be redeemed directly into an investment account.</div>
-
-<div class="label">Solution</div>
-<div class="project-desc">A seamless gifting flow where users choose an amount, personalize the gift, and send an investment gift card that encourages recipients to start investing.</div>
-
-<a href="https://tasckuqt.gensparkspace.com/" target="_blank" class="deck-btn">View Product Deck</a>
-
-<div class="badge">Prototype Demo</div>
-</div>
 </div>
 
+</div>
 
-<!-- PROJECT 2 : TRIPSYNC -->
-<div class="card">
-<video autoplay muted loop controls>
+<!-- PROJECT 2 -->
+<div class="project">
+<h2>TripSync</h2>
+
+<div class="section-title">Problem</div>
+<p>Planning trips with friends is chaotic across chats, spreadsheets, and multiple apps.</p>
+
+<div class="section-title">Idea</div>
+<p>Create a collaborative trip planning platform where friends can vote, plan and manage everything together.</p>
+
+<div class="section-title">Solution</div>
+<p>TripSync centralizes itinerary planning, expense sharing, and activity voting into one simple mobile interface.</p>
+
+<a class="button" href="#">View Product Deck</a>
+
+<div class="phone-frame">
+<video controls autoplay loop muted>
 <source src="tripsync-demo.mp4" type="video/mp4">
 </video>
-
-<div class="card-content">
-<div class="project-title">TripSync</div>
-
-<div class="label">Problem</div>
-<div class="project-desc">Planning group trips becomes chaotic due to scattered conversations, conflicting preferences, and difficulty finalizing decisions.</div>
-
-<div class="label">Idea</div>
-<div class="project-desc">Create a collaborative platform where friends can vote on destinations, coordinate plans, and align on travel decisions in one place.</div>
-
-<div class="label">Solution</div>
-<div class="project-desc">TripSync simplifies group travel by centralizing trip discussions, enabling quick polls for decisions, and organizing plans into one shared workspace.</div>
-
-<div class="badge">Prototype Demo</div>
-</div>
 </div>
 
 </div>
-</section>
 
-<section>
-<div class="resume">
-<h2>Resume</h2>
-<p>Download my resume to learn more about my work and experience.</p>
-<a href="resume.pdf" target="_blank">Download Resume</a>
+
+<!-- TRY MY THINKING -->
+<div class="thinking">
+<h2>Try My Thinking</h2>
+<p>Give me a random product problem and see how I approach solving it.</p>
+
+<button class="button" onclick="generateProblem()">Give Sudharsan a Product Problem</button>
+
+<div id="problem" class="problem-box" style="display:none"></div>
 </div>
-</section>
 
-<div class="footer">
-<p>© 2026 Sudharsan</p>
 </div>
 
 <script>
-const roles=["Product Thinker","Developer","Executor"];
-let i=0;
-setInterval(()=>{
- i=(i+1)%roles.length;
- document.getElementById('role').textContent=roles[i];
-},2000);
+
+const problems=[
+"How would you improve the onboarding experience of a fintech app?",
+"Design a feature to reduce food delivery cancellations.",
+"How might we make saving money addictive for Gen Z?",
+"Improve the user experience of booking train tickets in India.",
+"How would you redesign LinkedIn for college students?",
+"Design a feature to help friends split expenses automatically."
+]
+
+function generateProblem(){
+const random=problems[Math.floor(Math.random()*problems.length)]
+const box=document.getElementById('problem')
+box.style.display='block'
+box.innerText=random
+}
+
 </script>
 
 </body>
