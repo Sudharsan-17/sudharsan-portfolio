@@ -10,14 +10,16 @@ header{padding:40px;text-align:center;background:white;border-bottom:1px solid #
 h1{margin:0;font-size:32px}
 p.subtitle{color:#666;margin-top:10px}
 button.primary{padding:12px 20px;margin-top:20px;border:none;background:black;color:white;border-radius:6px;cursor:pointer}
-section{max-width:800px;margin:40px auto;padding:0 20px}
-.feed{display:flex;flex-direction:column;gap:30px}
-.card{background:white;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.06);overflow:hidden}
+section{max-width:850px;margin:40px auto;padding:0 20px}
+.feed{display:flex;flex-direction:column;gap:40px}
+.card{background:white;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.08);overflow:hidden}
 .card video{width:100%;display:block}
-.card-content{padding:15px}
-.project-title{font-size:18px;font-weight:bold}
-.project-desc{color:#555;margin-top:6px;font-size:14px}
-.badge{display:inline-block;background:#eee;padding:4px 8px;border-radius:6px;font-size:12px;margin-top:10px}
+.card-content{padding:20px}
+.project-title{font-size:20px;font-weight:bold;margin-bottom:10px}
+.label{font-weight:bold;margin-top:8px}
+.project-desc{color:#444;margin-top:4px;font-size:14px;line-height:1.5}
+.badge{display:inline-block;background:#eee;padding:4px 10px;border-radius:6px;font-size:12px;margin-top:12px}
+.deck-btn{display:inline-block;margin-top:14px;padding:9px 16px;background:black;color:white;border-radius:6px;text-decoration:none;font-size:14px}
 .resume{background:white;padding:30px;border-radius:10px;text-align:center}
 .footer{text-align:center;padding:40px;color:#777}
 </style>
@@ -35,36 +37,50 @@ section{max-width:800px;margin:40px auto;padding:0 20px}
 <h2>Product Experiments</h2>
 <div class="feed">
 
-<div class="card">
-<video autoplay muted loop controls>
-<source src="tripsync-demo.mp4" type="video/mp4">
-</video>
-<div class="card-content">
-<div class="project-title">TripSync</div>
-<div class="project-desc">A tool to coordinate group travel planning and decisions.</div>
-<div class="badge">20 sec demo</div>
-</div>
-</div>
-
-<div class="card">
-<video autoplay muted loop controls>
-<source src="hiring-swipe-demo.mp4" type="video/mp4">
-</video>
-<div class="card-content">
-<div class="project-title">Swipe Hiring Model</div>
-<div class="project-desc">A swipe-based hiring interface to speed up recruiter screening.</div>
-<div class="badge">Prototype Demo</div>
-</div>
-</div>
-
+<!-- PROJECT 1 : GROWW GIFT CARD -->
 <div class="card">
 <video autoplay muted loop controls>
 <source src="groww-giftcard-demo.mp4" type="video/mp4">
 </video>
+
 <div class="card-content">
-<div class="project-title">Digital Gift Card Experience</div>
-<div class="project-desc">Product concept for making gift cards more engaging.</div>
-<div class="badge">Product Concept</div>
+<div class="project-title">Groww Digital Gift Card</div>
+
+<div class="label">Problem</div>
+<div class="project-desc">Gifting money digitally often feels impersonal and lacks meaning. Users also struggle to introduce friends or family to investing in a simple way.</div>
+
+<div class="label">Idea</div>
+<div class="project-desc">Enable users to gift investments through Groww using a digital gift card that can be redeemed directly into an investment account.</div>
+
+<div class="label">Solution</div>
+<div class="project-desc">A seamless gifting flow where users choose an amount, personalize the gift, and send an investment gift card that encourages recipients to start investing.</div>
+
+<a href="https://tasckuqt.gensparkspace.com/" target="_blank" class="deck-btn">View Product Deck</a>
+
+<div class="badge">Prototype Demo</div>
+</div>
+</div>
+
+
+<!-- PROJECT 2 : TRIPSYNC -->
+<div class="card">
+<video autoplay muted loop controls>
+<source src="tripsync-demo.mp4" type="video/mp4">
+</video>
+
+<div class="card-content">
+<div class="project-title">TripSync</div>
+
+<div class="label">Problem</div>
+<div class="project-desc">Planning group trips becomes chaotic due to scattered conversations, conflicting preferences, and difficulty finalizing decisions.</div>
+
+<div class="label">Idea</div>
+<div class="project-desc">Create a collaborative platform where friends can vote on destinations, coordinate plans, and align on travel decisions in one place.</div>
+
+<div class="label">Solution</div>
+<div class="project-desc">TripSync simplifies group travel by centralizing trip discussions, enabling quick polls for decisions, and organizing plans into one shared workspace.</div>
+
+<div class="badge">Prototype Demo</div>
 </div>
 </div>
 
@@ -91,5 +107,6 @@ setInterval(()=>{
  document.getElementById('role').textContent=roles[i];
 },2000);
 </script>
+
 </body>
 </html>
