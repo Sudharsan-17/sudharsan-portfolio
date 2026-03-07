@@ -1,45 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sudharsan Labs</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vamsi Sudharsan | Product Portfolio</title>
+
 <style>
+
 body{
 font-family: Arial, Helvetica, sans-serif;
 margin:0;
-background:#f6f8f7;
-color:#1a1a1a;
+background:#f7f7f7;
+color:#222;
 }
 
-header{
+.hero{
 text-align:center;
 padding:60px 20px;
+background:white;
 }
 
-h1{
-font-size:40px;
+.hero h1{
+font-size:36px;
 margin-bottom:10px;
 }
 
-.subtitle{
+.hero p{
 color:#555;
-font-size:18px;
+margin-bottom:30px;
 }
 
-.container{
-max-width:1000px;
+.top-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:12px 22px;
+background:#0f9d58;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-size:14px;
+}
+
+.resume{
+background:#333;
+}
+
+.linkedin{
+background:#0077b5;
+}
+
+.btn:hover{
+opacity:0.9;
+}
+
+.projects{
+max-width:1100px;
 margin:auto;
-padding:20px;
+padding:40px 20px;
 }
 
 .project{
 background:white;
-border:2px solid #9be3b0;
-border-radius:14px;
-padding:28px;
+border-radius:12px;
+padding:40px;
 margin-bottom:40px;
-box-shadow:0 6px 18px rgba(0,0,0,0.06);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.project-grid{
+display:grid;
+grid-template-columns:1fr 300px;
+gap:40px;
+align-items:center;
 }
 
 .project h2{
@@ -48,176 +87,210 @@ margin-top:0;
 
 .section-title{
 font-weight:bold;
-margin-top:16px;
+margin-top:20px;
 }
 
-.button{
+.phone{
+width:260px;
+height:520px;
+background:black;
+border-radius:40px;
+padding:12px;
+position:relative;
+margin:auto;
+box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+
+.phone video{
+width:100%;
+height:100%;
+border-radius:30px;
+object-fit:cover;
+}
+
+.phone::before{
+content:"";
+position:absolute;
+left:-5px;
+top:130px;
+width:5px;
+height:70px;
+background:#333;
+border-radius:4px;
+}
+
+.phone::after{
+content:"";
+position:absolute;
+right:-5px;
+top:150px;
+width:5px;
+height:90px;
+background:#333;
+border-radius:4px;
+}
+
+.deck-button{
 display:inline-block;
-margin-top:18px;
-padding:10px 18px;
-background:#0f9d58;
+margin-top:25px;
+background:#222;
 color:white;
-text-decoration:none;
+padding:10px 18px;
 border-radius:6px;
+text-decoration:none;
 font-size:14px;
 }
 
-.button:hover{
-background:#0b7f46;
-}
-
-/* PHONE MOCKUP */
-.phone-frame{
-margin-top:30px;
-width:260px;
-height:520px;
-margin-left:auto;
-margin-right:auto;
-background:black;
-border-radius:36px;
-padding:10px;
-position:relative;
-box-shadow:0 10px 30px rgba(0,0,0,0.25);
-}
-
-.phone-frame video{
-width:100%;
-height:100%;
-object-fit:cover;
-border-radius:28px;
-}
-
-/* side buttons */
-.phone-frame::before{
-content:"";
-position:absolute;
-left:-4px;
-top:120px;
-width:4px;
-height:60px;
-background:#333;
-border-radius:3px;
-}
-
-.phone-frame::after{
-content:"";
-position:absolute;
-right:-4px;
-top:160px;
-width:4px;
-height:90px;
-background:#333;
-border-radius:3px;
-}
-
-/* thinking section */
-.thinking{
-background:white;
-border-radius:14px;
-padding:40px;
-margin-top:60px;
+footer{
 text-align:center;
-box-shadow:0 6px 18px rgba(0,0,0,0.06);
+padding:40px;
+color:#666;
 }
 
-.problem-box{
-margin-top:20px;
-padding:16px;
-border:1px dashed #bbb;
-border-radius:8px;
-font-style:italic;
-background:#fafafa;
+@media(max-width:900px){
+
+.project-grid{
+grid-template-columns:1fr;
+text-align:center;
+}
+
 }
 
 </style>
+
 </head>
+
 <body>
 
-<header>
-<h1>Sudharsan Labs</h1>
-<div class="subtitle">Product Thinking • UX • AI Experiments</div>
+<header class="hero">
+
+<h1>Hello 👋 I'm Chinnam Vamsi Sudharsan</h1>
+<p>Here is my product portfolio.</p>
+
+<div class="top-buttons">
+
+<a class="btn" href="#" target="_blank">
+Have a 20-min conversation with me
+</a>
+
+<a class="btn resume" href="resume.pdf" target="_blank">
+View Resume
+</a>
+
+<a class="btn linkedin"
+href="https://www.linkedin.com/in/vamsi-sudharsan/"
+target="_blank">
+Connect with me on LinkedIn
+</a>
+
+</div>
+
 </header>
 
-<div class="container">
+<section class="projects">
 
 <!-- PROJECT 1 -->
+
 <div class="project">
-<h2>Groww Digital Gift Card</h2>
 
-<div class="section-title">Problem</div>
-<p>Gifting money digitally often feels transactional and impersonal.</p>
+<div class="project-grid">
 
-<div class="section-title">Idea</div>
-<p>Allow users to gift investments directly through Groww using a digital investment gift card.</p>
+<div>
 
-<div class="section-title">Solution</div>
-<p>A seamless gifting flow where users choose a fund, add a message, and send an investment gift card that can be redeemed instantly.</p>
+<h2>Groww Gifting</h2>
 
-<a class="button" href="https://tasckuqt.gensparkspace.com/" target="_blank">View Product Deck</a>
+<p class="section-title">Problem</p>
+<p>
+Young investors want to gift stocks and investments to friends and family,
+but current platforms make gifting complicated and unintuitive.
+</p>
 
-<div class="phone-frame">
-<video controls autoplay loop muted>
+<p class="section-title">Idea</p>
+<p>
+Create a simple gifting flow inside the Groww ecosystem that lets
+users send stocks as gifts with a personalized message and seamless onboarding.
+</p>
+
+<p class="section-title">Solution</p>
+<p>
+Designed a mobile-first gifting experience where users select a stock,
+add a message, and send the investment as a digital gift.
+The receiver can claim it easily by creating a Groww account.
+</p>
+
+<a class="deck-button" href="#" target="_blank">
+View Product Deck
+</a>
+
+</div>
+
+<div class="phone">
+
+<video autoplay muted loop playsinline controls>
 <source src="groww-demo.mp4" type="video/mp4">
 </video>
+
+</div>
+
 </div>
 
 </div>
 
 <!-- PROJECT 2 -->
+
 <div class="project">
+
+<div class="project-grid">
+
+<div>
+
 <h2>TripSync</h2>
 
-<div class="section-title">Problem</div>
-<p>Planning trips with friends is chaotic across chats, spreadsheets, and multiple apps.</p>
+<p class="section-title">Problem</p>
+<p>
+Group travel planning is chaotic. Friends coordinate across multiple
+apps like WhatsApp, Google Docs, and payment apps which creates friction.
+</p>
 
-<div class="section-title">Idea</div>
-<p>Create a collaborative trip planning platform where friends can vote, plan and manage everything together.</p>
+<p class="section-title">Idea</p>
+<p>
+Build a unified platform where groups can plan trips together,
+track expenses, vote on plans, and manage itineraries in one place.
+</p>
 
-<div class="section-title">Solution</div>
-<p>TripSync centralizes itinerary planning, expense sharing, and activity voting into one simple mobile interface.</p>
+<p class="section-title">Solution</p>
+<p>
+Designed TripSync as a collaborative trip planner that includes
+group decision tools, itinerary planning, expense splitting,
+and shared travel updates.
+</p>
 
-<a class="button" href="#">View Product Deck</a>
+<a class="deck-button" href="#" target="_blank">
+View Product Deck
+</a>
 
-<div class="phone-frame">
-<video controls autoplay loop muted>
+</div>
+
+<div class="phone">
+
+<video autoplay muted loop playsinline controls>
 <source src="tripsync-demo.mp4" type="video/mp4">
 </video>
+
+</div>
+
 </div>
 
 </div>
 
+</section>
 
-<!-- TRY MY THINKING -->
-<div class="thinking">
-<h2>Try My Thinking</h2>
-<p>Give me a random product problem and see how I approach solving it.</p>
+<footer>
 
-<button class="button" onclick="generateProblem()">Give Sudharsan a Product Problem</button>
+<p>© 2026 Vamsi Sudharsan</p>
 
-<div id="problem" class="problem-box" style="display:none"></div>
-</div>
-
-</div>
-
-<script>
-
-const problems=[
-"How would you improve the onboarding experience of a fintech app?",
-"Design a feature to reduce food delivery cancellations.",
-"How might we make saving money addictive for Gen Z?",
-"Improve the user experience of booking train tickets in India.",
-"How would you redesign LinkedIn for college students?",
-"Design a feature to help friends split expenses automatically."
-]
-
-function generateProblem(){
-const random=problems[Math.floor(Math.random()*problems.length)]
-const box=document.getElementById('problem')
-box.style.display='block'
-box.innerText=random
-}
-
-</script>
+</footer>
 
 </body>
+
 </html>
