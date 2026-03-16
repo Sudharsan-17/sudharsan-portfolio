@@ -1,455 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Vamsi Sudharsan | Product Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<title>Vamsi Sudharsan — Product Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
-body{
-font-family:'Inter',sans-serif;
-margin:0;
-background:white;
-color:#1e293b;
+:root {
+  --bg: #fafaf8;
+  --bg2: #f4f3ef;
+  --bg3: #eeecea;
+  --ink: #18181b;
+  --ink2: #3f3f46;
+  --ink3: #71717a;
+  --ink4: #a1a1aa;
+  --green: #059669;
+  --green-bg: #ecfdf5;
+  --green-border: #a7f3d0;
+  --border: #e4e4e7;
+  --border2: #d4d4d8;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.05);
+  --radius: 16px;
 }
-
-/* NAVBAR */
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:white;
-border-bottom:1px solid #e2e8f0;
-position:sticky;
-top:0;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
 }
-
-.logo{
-font-weight:600;
-font-size:18px;
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #d4d4d8 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
 }
-
-.nav-links a{
-margin-left:30px;
-font-size:15px;
-color:#475569;
+.layout {
+  display: grid;
+  grid-template-columns: 272px 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
-
-.nav-links a:hover{
-color:#16a34a;
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(20px);
+  padding: 36px 24px;
 }
-
+.sidebar-top { flex: 1; }
+.site-mark {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.4px;
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.site-mark-dot {
+  width: 8px; height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: blink 2.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.nav-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ink4);
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  margin-top: 24px;
+  padding-left: 12px;
+}
+.nav-label:first-of-type { margin-top: 0; }
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink3);
+  text-decoration: none;
+  transition: all 0.16s;
+  margin-bottom: 1px;
+}
+nav a svg { width:15px; height:15px; opacity:0.45; flex-shrink:0; }
+nav a:hover, nav a.active { background: var(--bg3); color: var(--ink); }
+nav a.active { font-weight: 500; }
+nav a:hover svg, nav a.active svg { opacity: 0.75; }
+.sidebar-cta {
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cta-btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-size: 13px; font-weight: 500;
+  text-decoration: none;
+  transition: all 0.18s;
+  font-family: 'Geist', sans-serif;
+  border: 1px solid transparent;
+}
+.cta-btn.primary { background: var(--green); color: white; }
+.cta-btn.primary:hover { background: #047857; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(5,150,105,0.28); }
+.cta-btn.ghost { background: var(--white); color: var(--ink2); border-color: var(--border); }
+.cta-btn.ghost:hover { background: var(--bg2); border-color: var(--border2); }
+/* MAIN */
+.main { overflow-x: hidden; }
+.content-section {
+  padding: 72px 60px;
+  border-bottom: 1px solid var(--border);
+}
+.content-section:last-child { border-bottom: none; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--green); margin-bottom: 10px;
+}
+.section-heading {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 48px;
+}
 /* HERO */
-
-.hero{
-padding:90px 8%;
-max-width:850px;
+#home {
+  background: linear-gradient(150deg, #ffffff 0%, #f4f3ef 100%);
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
 }
-
-.hero h1{
-font-size:44px;
-margin-bottom:10px;
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 248px;
+  gap: 48px;
+  align-items: start;
 }
-
-.hero p{
-font-size:18px;
-color:#64748b;
-line-height:1.6;
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 500;
+  color: var(--green); background: var(--green-bg);
+  border: 1px solid var(--green-border);
+  padding: 5px 12px; border-radius: 100px; margin-bottom: 22px;
 }
-
-.hero-buttons{
-margin-top:30px;
-display:flex;
-gap:15px;
+.hero-badge::before {
+  content:''; width:6px; height:6px;
+  background: var(--green); border-radius:50%;
+  animation: blink 2s infinite;
 }
-
-.btn{
-padding:12px 20px;
-border-radius:8px;
-font-size:14px;
-background:#16a34a;
-color:white;
+.hero-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(38px, 4.8vw, 60px);
+  font-weight: 700;
+  letter-spacing: -2px; line-height: 1.0;
+  color: var(--ink); margin-bottom: 14px;
 }
-
-.btn.secondary{
-background:#f1f5f9;
-color:#1e293b;
+.hero-name .italic { font-style: italic; font-weight: 400; color: var(--ink3); }
+.hero-sub {
+  font-size: 16px; color: var(--ink3);
+  line-height: 1.65; font-weight: 300;
+  margin-bottom: 22px; max-width: 480px;
 }
-
-/* SECTION */
-
-.section{
-padding:80px 8%;
+.hero-sub strong { color: var(--ink); font-weight: 500; }
+.hero-chips {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 32px;
 }
-
-.section h2{
-font-size:32px;
-margin-bottom:40px;
+.chip {
+  font-size: 12px; font-weight: 500; color: var(--ink2);
+  background: var(--white); border: 1px solid var(--border);
+  padding: 4px 12px; border-radius: 100px;
+  box-shadow: var(--shadow-sm);
 }
-
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 11px 20px; border-radius: 10px;
+  font-size: 14px; font-weight: 500;
+  text-decoration: none; transition: all 0.2s;
+  font-family: 'Geist', sans-serif;
+}
+.btn-green { background: var(--green); color: white; }
+.btn-green:hover { background: #047857; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(5,150,105,0.3); }
+.btn-outline { background: var(--white); color: var(--ink2); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.btn-outline:hover { background: var(--bg2); transform: translateY(-1px); }
+/* Profile card */
+.profile-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: var(--shadow-lg);
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  text-align: center;
+  position: relative; top: 16px;
+}
+.profile-photo {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2px var(--border);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.profile-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.profile-photo-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 30px; font-weight: 700; color: var(--green);
+}
+.profile-name {
+  font-family: 'Fraunces', serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--ink); letter-spacing: -0.2px;
+}
+.profile-sub { font-size: 12px; color: var(--ink4); margin-top: -8px; line-height: 1.55; }
+.profile-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 7px; width: 100%;
+}
+.stat-box {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 9px 6px; text-align: center;
+}
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 19px; font-weight: 700;
+  color: var(--ink); letter-spacing: -0.4px;
+}
+.stat-label { font-size: 10px; color: var(--ink4); font-weight: 500; letter-spacing:0.2px; margin-top:1px; }
+.profile-li-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; padding: 9px;
+  background: #0a66c2; color: white;
+  border-radius: 8px; font-size: 12px; font-weight: 500;
+  text-decoration: none; transition: all 0.2s;
+}
+.profile-li-btn:hover { background: #004182; }
+/* Video card */
+.video-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-top: 40px;
+}
+.video-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px;
+}
+.video-header-icon {
+  width: 34px; height: 34px;
+  background: var(--green-bg);
+  border: 1px solid var(--green-border);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green); flex-shrink: 0;
+}
+.video-header-text strong { display:block; font-size:14px; font-weight:600; color:var(--ink); }
+.video-header-text span { font-size:12px; color:var(--ink4); }
+.video-body { margin: 20px; }
+.video-placeholder {
+  background: var(--bg2);
+  aspect-ratio: 16/6;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px;
+  color: var(--ink4); font-size: 13px;
+  border: 2px dashed var(--border2);
+  border-radius: 10px;
+}
+.video-placeholder-icon {
+  width: 44px; height: 44px;
+  background: var(--bg3); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink3);
+}
 /* PROJECTS */
-
-.project{
-display:grid;
-grid-template-columns:1fr 300px;
-gap:50px;
-margin-bottom:70px;
-background:#f8fafc;
-padding:35px;
-border-radius:12px;
-border:1px solid #e2e8f0;
+#projects { background: var(--bg2); }
+.projects-stack { display: flex; flex-direction: column; gap: 24px; }
+.project-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px; overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s, transform 0.3s;
 }
-
-.project p{
-color:#475569;
-line-height:1.6;
+.project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.project-inner {
+  display: grid;
+  grid-template-columns: 1fr 268px;
+  min-height: 520px;
 }
-
-.label{
-font-weight:600;
-margin-top:18px;
+.project-content {
+  padding: 44px 44px;
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
 }
-
-/* PHONE */
-
-.phone{
-width:260px;
-height:520px;
-background:black;
-border-radius:40px;
-padding:12px;
-box-shadow:0 15px 30px rgba(0,0,0,0.15);
+.proj-num {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink4); margin-bottom: 14px;
 }
-
-.phone video{
-width:100%;
-height:100%;
-border-radius:28px;
-object-fit:cover;
+.proj-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 26px; font-weight: 600;
+  letter-spacing: -0.5px; color: var(--ink);
+  line-height: 1.1; margin-bottom: 8px;
 }
-
-/* DECK BUTTON */
-
-.deck{
-margin-top:20px;
-display:inline-block;
-padding:10px 16px;
-background:#16a34a;
-color:white;
-border-radius:6px;
-font-size:14px;
+.proj-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600;
+  color: var(--green); background: var(--green-bg);
+  border: 1px solid var(--green-border);
+  padding: 3px 10px; border-radius: 100px;
+  margin-bottom: 26px; letter-spacing: 0.2px;
 }
-
-/* ABOUT SECTION */
-
-.experience{
-margin-bottom:35px;
+.proj-pis { display: flex; flex-direction: column; gap: 16px; flex: 1; margin-bottom: 28px; }
+.pi { display: grid; grid-template-columns: 68px 1fr; gap: 12px; align-items: start; }
+.pi-key {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--ink4); padding-top: 3px;
+  display: flex; align-items: center; gap: 5px;
 }
-
-.experience h3{
-margin:0;
-font-size:18px;
+.pi-key::after { content:''; flex:1; height:1px; background:var(--border); }
+.pi-val { font-size: 14px; color: var(--ink2); line-height: 1.65; font-weight: 300; }
+.proj-deck-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 10px 18px;
+  background: var(--ink); color: white;
+  border-radius: 9px; font-size: 13px; font-weight: 500;
+  text-decoration: none; transition: all 0.2s;
+  align-self: flex-start; font-family: 'Geist', sans-serif;
 }
-
-.experience span{
-color:#64748b;
-font-size:14px;
+.proj-deck-btn:hover { background: var(--ink2); transform: translateY(-1px); }
+.proj-deck-btn svg { width:13px; height:13px; }
+.project-phone-col {
+  background: var(--bg2);
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px 22px;
 }
-
+.phone {
+  width: 202px; height: 420px;
+  background: #0f0f0f;
+  border-radius: 38px; padding: 9px;
+  position: relative;
+  box-shadow: 0 0 0 1.5px #2a2a2a, 0 28px 60px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.phone::before {
+  content:''; position:absolute;
+  top:13px; left:50%; transform:translateX(-50%);
+  width:62px; height:19px;
+  background:#0f0f0f; border-radius:0 0 11px 11px; z-index:2;
+}
+.phone::after {
+  content:''; position:absolute;
+  left:-3px; top:88px;
+  width:3px; height:26px;
+  background:#1c1c1c; border-radius:2px 0 0 2px;
+  box-shadow: 0 38px 0 #1c1c1c;
+}
+.phone-pwr {
+  position:absolute; right:-3px; top:108px;
+  width:3px; height:44px;
+  background:#1c1c1c; border-radius:0 2px 2px 0;
+}
+.phone-screen {
+  width:100%; height:100%;
+  border-radius:30px; overflow:hidden; background:#0a0a0a;
+}
+.phone-screen video, .phone-screen iframe {
+  width:100%; height:100%; object-fit:cover; display:block; border:none;
+}
+/* SKILLS */
+#skills { background: var(--white); }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.skill-group {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px;
+}
+.skill-group-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--green); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.skill-group-label::after { content:''; flex:1; height:1px; background:var(--green-border); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag {
+  font-size: 12px; font-weight: 500;
+  color: var(--ink2); background: var(--white);
+  border: 1px solid var(--border);
+  padding: 5px 12px; border-radius: 8px;
+  box-shadow: var(--shadow-sm); transition: all 0.15s;
+}
+.skill-tag:hover { border-color: var(--green-border); color: var(--green); background: var(--green-bg); }
+/* ABOUT */
+#about { background: var(--bg); }
+.exp-list { display: flex; flex-direction: column; max-width: 780px; }
+.exp-row {
+  display: grid; grid-template-columns: 152px 1fr;
+  gap: 28px; padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+}
+.exp-row:last-child { border-bottom: none; }
+.exp-company {
+  font-size: 11px; font-weight: 600;
+  color: var(--ink3); letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.exp-period { font-size: 12px; color: var(--ink4); margin-top: 3px; font-weight: 300; }
+.exp-role {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 19px; font-weight: 600;
+  color: var(--ink); letter-spacing: -0.3px; margin-bottom: 8px;
+}
+.exp-desc { font-size: 14px; color: var(--ink3); line-height: 1.72; font-weight: 300; margin-bottom: 10px; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.exp-tag {
+  font-size: 11px; font-weight: 500;
+  color: var(--ink3); background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 3px 10px; border-radius: 6px;
+}
 /* FOOTER */
-
-footer{
-text-align:center;
-padding:40px;
-color:#64748b;
-border-top:1px solid #e2e8f0;
+footer {
+  padding: 28px 60px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--white);
 }
-
-@media(max-width:900px){
-
-.project{
-grid-template-columns:1fr;
+.footer-brand { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600; color: var(--ink); }
+.footer-note { font-size: 12px; color: var(--ink4); }
+/* ANIMATIONS */
+.fade { opacity:0; transform:translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade.in { opacity:1; transform:translateY(0); }
+.d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+/* RESPONSIVE */
+@media(max-width:1080px) {
+  .layout { grid-template-columns: 230px 1fr; }
+  .content-section { padding: 56px 40px; }
+  .skills-grid { grid-template-columns: repeat(2,1fr); }
 }
-
+@media(max-width:768px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border); flex-direction:row; flex-wrap:wrap; padding:14px 18px; align-items:center; gap:6px; }
+  .sidebar-top { display:contents; }
+  .site-mark { margin-bottom:0; }
+  .nav-label { display:none; }
+  nav { display:flex; gap:3px; flex-wrap:wrap; }
+  nav a { padding:6px 11px; font-size:13px; }
+  .sidebar-cta { padding-top:0; border-top:none; flex-direction:row; margin-top:0; }
+  .content-section { padding:44px 22px; }
+  .hero-grid { grid-template-columns:1fr; }
+  .profile-card { display:none; }
+  .project-inner { grid-template-columns:1fr; min-height:unset; }
+  .project-content { border-right:none; border-bottom:1px solid var(--border); padding:28px 22px; }
+  .skills-grid { grid-template-columns:1fr; }
+  .exp-row { grid-template-columns:1fr; gap:5px; }
+  footer { flex-direction:column; gap:6px; padding:22px; text-align:center; }
 }
-
 </style>
-
 </head>
-
 <body>
+<div class="layout">
 
-<!-- NAVBAR -->
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="site-mark"><span class="site-mark-dot"></span>Vamsi.</div>
+      <div class="nav-label">Navigate</div>
+      <nav>
+        <a href="#home" class="active">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Home
+        </a>
+        <a href="#projects">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          Projects
+        </a>
+        <a href="#skills">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          Skills
+        </a>
+        <a href="#about">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          About
+        </a>
+      </nav>
+    </div>
+    <div class="sidebar-cta">
+      <a class="cta-btn primary" href="#" target="_blank">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Book a chat
+      </a>
+      <a class="cta-btn ghost" href="resume.pdf" target="_blank">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Resume
+      </a>
+    </div>
+  </aside>
 
-<nav>
+  <!-- MAIN -->
+  <main class="main">
 
-<div class="logo">Vamsi Sudharsan</div>
+    <!-- HOME -->
+    <section id="home" class="content-section">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badge">Open to PM roles · IIT Bombay</div>
+          <h1 class="hero-name">
+            Chinnam<br>
+            <span class="italic">Vamsi Sudharsan.</span>
+          </h1>
+          <p class="hero-sub">
+            <strong>Product thinker</strong> building fintech &amp; consumer products that actually matter to real users.
+          </p>
+          <div class="hero-chips">
+            <span class="chip">Product Strategy</span>
+            <span class="chip">Fintech</span>
+            <span class="chip">User Research</span>
+            <span class="chip">Go-to-Market</span>
+            <span class="chip">IIT Bombay '24</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-green" href="#" target="_blank">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Book 20-min chat
+            </a>
+            <a class="btn btn-outline" href="https://www.linkedin.com/in/vamsi-sudharsan/" target="_blank">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
 
-<div class="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
+          <!-- INTRO VIDEO -->
+          <div class="video-card fade d2">
+            <div class="video-header">
+              <div class="video-header-icon">
+                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+              </div>
+              <div class="video-header-text">
+                <strong>Quick Intro</strong>
+                <span>20 sec · hear me out</span>
+              </div>
+            </div>
+            <div class="video-body">
+              <!-- PLACEHOLDER — when ready, replace this div with a <video> tag -->
+              <div class="video-placeholder">
+                <div class="video-placeholder-icon">
+                  <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+                </div>
+                <span>Upload <code style="background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:11px;">intro.mp4</code> to GitHub to activate this</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROFILE CARD -->
+        <div class="profile-card fade d3">
+          <div class="profile-photo">
+            <!-- When you add photo: <img src="photo.jpg" alt="Vamsi Sudharsan"> -->
+            <div class="profile-photo-placeholder">VS</div>
+          </div>
+          <div class="profile-name">Chinnam Vamsi Sudharsan</div>
+          <div class="profile-sub">Product Thinker<br>IIT Bombay · B.Tech Mech</div>
+          <div class="profile-stats">
+            <div class="stat-box">
+              <div class="stat-num">3</div>
+              <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">13<span style="font-size:11px;font-weight:400">/133</span></div>
+              <div class="stat-label">ProdX Rank</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">₹50L</div>
+              <div class="stat-label">Pilots</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">2+</div>
+              <div class="stat-label">Yrs Exp</div>
+            </div>
+          </div>
+          <a class="profile-li-btn" href="https://www.linkedin.com/in/vamsi-sudharsan/" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="content-section">
+      <div class="section-eyebrow">Work</div>
+      <h2 class="section-heading">Product Projects</h2>
+      <div class="projects-stack">
+
+        <div class="project-card fade">
+          <div class="project-inner">
+            <div class="project-content">
+              <div class="proj-num">01 · Product Concept</div>
+              <div class="proj-title">Groww Gifting</div>
+              <div class="proj-tag">Fintech · Consumer</div>
+              <div class="proj-pis">
+                <div class="pi"><div class="pi-key">Problem</div><div class="pi-val">Young investors want to gift stocks to friends &amp; family, but existing platforms make it complicated and unintuitive.</div></div>
+                <div class="pi"><div class="pi-key">Idea</div><div class="pi-val">A seamless gifting flow inside Groww — select a stock, personalize a message, send it as an investment gift.</div></div>
+                <div class="pi"><div class="pi-key">Solution</div><div class="pi-val">Mobile-first experience with one-tap gifting, personalized messages, and easy recipient onboarding into Groww.</div></div>
+              </div>
+              <a class="proj-deck-btn" href="https://tasckuqt.gensparkspace.com/" target="_blank">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                View Product Deck
+              </a>
+            </div>
+            <div class="project-phone-col">
+              <div class="phone">
+                <div class="phone-pwr"></div>
+                <div class="phone-screen">
+                  <video autoplay muted loop playsinline><source src="groww-demo.mp4" type="video/mp4"></video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade">
+          <div class="project-inner">
+            <div class="project-content">
+              <div class="proj-num">02 · Product Concept</div>
+              <div class="proj-title">TripSync</div>
+              <div class="proj-tag">Consumer · Travel</div>
+              <div class="proj-pis">
+                <div class="pi"><div class="pi-key">Problem</div><div class="pi-val">Group travel planning is scattered across WhatsApp, Docs, and payment apps — causing chaos and decision fatigue.</div></div>
+                <div class="pi"><div class="pi-key">Idea</div><div class="pi-val">One collaborative platform where groups plan, vote, split expenses, and manage trips together.</div></div>
+                <div class="pi"><div class="pi-key">Solution</div><div class="pi-val">TripSync — itinerary planning, group voting, expense splitting, and travel updates in a single mobile experience.</div></div>
+              </div>
+              <a class="proj-deck-btn" href="#" target="_blank">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                View Product Deck
+              </a>
+            </div>
+            <div class="project-phone-col">
+              <div class="phone">
+                <div class="phone-pwr"></div>
+                <div class="phone-screen">
+                  <video autoplay muted loop playsinline><source src="tripsync-demo.mp4" type="video/mp4"></video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade">
+          <div class="project-inner">
+            <div class="project-content">
+              <div class="proj-num">03 · Case Study</div>
+              <div class="proj-title">FinEase</div>
+              <div class="proj-tag">🏆 Ranked 13 / 133 · ProdX IIT Hyderabad · Product Folks</div>
+              <div class="proj-pis">
+                <div class="pi"><div class="pi-key">Problem</div><div class="pi-val">Gig workers in India face income instability, delayed payments, and zero access to financial tools built for their reality.</div></div>
+                <div class="pi"><div class="pi-key">Idea</div><div class="pi-val">A financial OS for gig workers — automatic income tracking, payment alerts, and access to relevant financial products.</div></div>
+                <div class="pi"><div class="pi-key">Solution</div><div class="pi-val">FinEase: income tracking, expense management, payment reminders, financial literacy, and government scheme discovery.</div></div>
+              </div>
+              <a class="proj-deck-btn" href="finease-slides.pdf" target="_blank">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                View Case Study Deck
+              </a>
+            </div>
+            <div class="project-phone-col">
+              <div class="phone">
+                <div class="phone-pwr"></div>
+                <div class="phone-screen">
+                  <iframe src="finease-slides.pdf"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="content-section">
+      <div class="section-eyebrow">Capabilities</div>
+      <h2 class="section-heading">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-label">Product</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Product Strategy</span>
+            <span class="skill-tag">Roadmapping</span>
+            <span class="skill-tag">PRD Writing</span>
+            <span class="skill-tag">User Research</span>
+            <span class="skill-tag">Wireframing</span>
+            <span class="skill-tag">A/B Thinking</span>
+            <span class="skill-tag">Go-to-Market</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Analysis</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Market Research</span>
+            <span class="skill-tag">Competitive Analysis</span>
+            <span class="skill-tag">Excel / Sheets</span>
+            <span class="skill-tag">PowerBI</span>
+            <span class="skill-tag">Product Metrics</span>
+            <span class="skill-tag">Funnel Analysis</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Domains</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Fintech</span>
+            <span class="skill-tag">Consumer Apps</span>
+            <span class="skill-tag">B2B SaaS</span>
+            <span class="skill-tag">Investment Platforms</span>
+            <span class="skill-tag">EV / Hardware</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="content-section">
+      <div class="section-eyebrow">Background</div>
+      <h2 class="section-heading">Experience</h2>
+      <div class="exp-list">
+
+        <div class="exp-row fade">
+          <div>
+            <div class="exp-company">Greaves Cotton</div>
+            <div class="exp-period">Jul 2024 – Present</div>
+          </div>
+          <div>
+            <div class="exp-role">Assistant Manager, R&amp;D</div>
+            <p class="exp-desc">Designed a data-driven EV program dashboard tracking milestones and dependencies across teams. Led cross-functional planning for R&amp;D lab capability development — resulting in a ₹3.65Cr in-house testing facility. Conducted competitive benchmarking for 3-wheeler EV platforms.</p>
+            <div class="exp-tags">
+              <span class="exp-tag">EV Product</span>
+              <span class="exp-tag">Cross-functional</span>
+              <span class="exp-tag">Data Analysis</span>
+              <span class="exp-tag">Procurement</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-row fade">
+          <div>
+            <div class="exp-company">Fintech Startup</div>
+            <div class="exp-period">Jun – Jul 2023</div>
+          </div>
+          <div>
+            <div class="exp-role">Product Intern</div>
+            <p class="exp-desc">Secured ₹50L in pilot investments by validating demand for an API-based algo-trading product with 75+ financial institutions. Defined B2B product positioning and GTM strategy. Identified B2C model limitations and recommended a B2B pivot after competitor &amp; regulatory analysis.</p>
+            <div class="exp-tags">
+              <span class="exp-tag">Fintech</span>
+              <span class="exp-tag">GTM Strategy</span>
+              <span class="exp-tag">B2B Product</span>
+              <span class="exp-tag">Market Research</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-row fade">
+          <div>
+            <div class="exp-company">IIT Bombay</div>
+            <div class="exp-period">2020 – 2024</div>
+          </div>
+          <div>
+            <div class="exp-role">B.Tech, Mechanical Engineering</div>
+            <p class="exp-desc">Hostel Secretary — managed a 70+ member team, ₹20L budget, and coordination with 30+ vendors for large-scale events. Campus MI Coordinator driving student initiatives and engagement programs across the institute.</p>
+            <div class="exp-tags">
+              <span class="exp-tag">Leadership</span>
+              <span class="exp-tag">Operations</span>
+              <span class="exp-tag">Community</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-brand">Vamsi Sudharsan</div>
+      <div class="footer-note">© 2026 · Built to ship ideas.</div>
+    </footer>
+
+  </main>
 </div>
 
-</nav>
-
-
-<!-- HOME -->
-
-<section id="home" class="hero">
-
-<h1>Hello, I'm Chinnam Vamsi Sudharsan</h1>
-
-<p>
-Product thinker focused on building user-centric digital experiences.
-This portfolio highlights my work across product strategy, UX thinking,
-and experimentation.
-</p>
-
-<div class="hero-buttons">
-
-<a class="btn" href="#">
-20 min conversation
-</a>
-
-<a class="btn secondary" href="resume.pdf">
-Resume
-</a>
-
-<a class="btn secondary"
-href="https://www.linkedin.com/in/vamsi-sudharsan/"
-target="_blank">
-LinkedIn
-</a>
-
-</div>
-
-</section>
-
-
-<!-- PROJECTS (HOME PAGE ONLY) -->
-
-<section class="section">
-
-<h2>Projects</h2>
-
-
-<div class="project">
-
-<div>
-
-<h3>Groww Gifting</h3>
-
-<div class="label">Problem</div>
-<p>
-Young investors want to gift stocks easily but current platforms
-make the process complicated.
-</p>
-
-<div class="label">Idea</div>
-<p>
-Create a simple gifting flow within the Groww ecosystem
-allowing users to gift investments.
-</p>
-
-<div class="label">Solution</div>
-<p>
-Designed a mobile-first gifting experience enabling users
-to select a stock, add a message and send it seamlessly.
-</p>
-
-<a class="deck" href="#" target="_blank">
-View Product Deck
-</a>
-
-</div>
-
-<div class="phone">
-
-<video autoplay muted loop playsinline controls>
-<source src="groww-demo.mp4" type="video/mp4">
-</video>
-
-</div>
-
-</div>
-
-
-
-<div class="project">
-
-<div>
-
-<h3>TripSync</h3>
-
-<div class="label">Problem</div>
-<p>
-Group travel planning happens across multiple tools,
-creating confusion and inefficiency.
-</p>
-
-<div class="label">Idea</div>
-<p>
-Create a collaborative platform where groups
-can plan trips together.
-</p>
-
-<div class="label">Solution</div>
-<p>
-TripSync centralizes itinerary planning, group decisions
-and expense tracking in one place.
-</p>
-
-<a class="deck" href="#" target="_blank">
-View Product Deck
-</a>
-
-</div>
-
-<div class="phone">
-
-<video autoplay muted loop playsinline controls>
-<source src="tripsync-demo.mp4" type="video/mp4">
-</video>
-
-</div>
-
-</div>
-
-  <div class="project">
-
-<div>
-
-<h3>FinEase — Financial Management for Gig Workers</h3>
-
-<p style="color:#16a34a;font-size:14px;margin-top:-6px;">
-Product Case Study — ProdX by Product Folks & FCC IIT Hyderabad (Ranked 13 / 133 teams)
-</p>
-
-<div class="label">Problem</div>
-
-<p>
-Gig workers in India experience fluctuating income, delayed payments and
-limited access to financial services. Many lack simple tools to track income,
-manage expenses and discover financial schemes or benefits.
-</p>
-
-<div class="label">Idea</div>
-
-<p>
-Build a financial assistant tailored for gig workers that automatically
-tracks income and expenses, sends reminders for pending payments and
-connects users to financial products like insurance and loans.
-</p>
-
-<div class="label">Solution</div>
-
-<p>
-Designed FinEase, a financial management platform that helps gig workers
-track income, manage expenses, receive payment reminders and discover
-relevant financial tools and government schemes.
-</p>
-
-<a class="deck" href="finease-slides.pdf" target="_blank">
-View Case Study Deck
-</a>
-
-</div>
-
-<div class="phone">
-
-<iframe
-src="finease-slides.pdf"
-width="100%"
-height="100%"
-style="border:none;border-radius:28px;">
-</iframe>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ABOUT PAGE -->
-
-<section id="about" class="section">
-
-<h2>About</h2>
-
-
-<div class="experience">
-
-<h3>IIT Bombay — Campus MI Coordinator</h3>
-<span>Leadership & Campus Initiatives</span>
-
-<p>
-Led student initiatives and coordinated activities
-to build engagement within the campus community.
-</p>
-
-</div>
-
-
-<div class="experience">
-
-<h3>Pranyas Wealth</h3>
-<span>Product & Strategy</span>
-
-<p>
-Worked on product thinking and strategic initiatives
-focused on improving digital investment experiences.
-</p>
-
-</div>
-
-
-<div class="experience">
-
-<h3>Chatur Wealth</h3>
-<span>Business & Product</span>
-
-<p>
-Collaborated with teams exploring financial products
-and customer experience improvements.
-</p>
-
-</div>
-
-
-<div class="experience">
-
-<h3>Greaves</h3>
-<span>Business Exposure</span>
-
-<p>
-Gained exposure to operations and systems within
-a large organization environment.
-</p>
-
-</div>
-
-
-</section>
-
-
-
-<footer>
-
-© 2026 Vamsi Sudharsan
-
-</footer>
-
-
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+  // Active nav
+  const sectionIds = ['home','projects','skills','about'];
+  const links = document.querySelectorAll('nav a');
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { threshold: 0.35 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if(el) secObs.observe(el); });
+</script>
 </body>
-
 </html>
